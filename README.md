@@ -1,6 +1,6 @@
 # Blockchain_Management_system
 
-This is the system that creates blockchain itself and makes users to manage efficiently through management portal.
+This is the system that creates blockchain itself and makes users to manage current states efficiently through management portal.
 
 💫 Project : The Blockchain System for the Smart Cement industries
 

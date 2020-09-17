@@ -1,0 +1,101 @@
+import openpyxl
+
+''' Make Transaction of Mixture from Excel file '''
+
+def mix_transaction(sheetName, i) :
+    wb = openpyxl.load_workbook("mix.xlsx")
+    
+    # check the existence of sheet
+    try :
+        ws = wb[sheetName]
+    except KeyError :
+        return -1
+
+    mixture = ws['A']
+    code = ws['B']
+    date = ws['C']
+    amount = ws['D']
+    A = ws['E']
+    B = ws['F']
+
+    tmp = {}
+
+    # check the existence of data in row
+    try :
+        tmp['code'] = code[i].value
+        if tmp['code'] is None :
+           return 0
+    except IndexError :
+        return 0
+    tmp['date'] = date[i].value.strftime('%Y-%m-%d')
+    tmp['amount'] = amount[i].value
+    tmp['A'] = A[i].value
+    tmp['B'] = B[i].value
+
+    return tmp
+
+
+''' Make Transaction of Product from Excel file '''
+
+def comp_transaction(sheetName, i) :
+    wb = openpyxl.load_workbook("comp.xlsx")
+
+    # check the existence of sheet
+    try :
+        ws = wb[sheetName]
+    except KeyError :
+        return -1
+
+    company = ws['A']
+    date = ws['B']
+    time = ws['C']
+    amount = ws['D']
+    recipe = ws['E']
+    car = ws['F']
+    mat1 = ws['G']
+    ideal1 = ws['H']
+    real1 = ws['I']
+    mat2 = ws['J']
+    ideal2 = ws['K']
+    real2 = ws['L']
+    mat3 = ws['M']
+    ideal3 = ws['N']
+    real3 = ws['O']
+    mat4 = ws['P']
+    ideal4 = ws['Q']
+    real4 = ws['R']
+    mat5 = ws['S']
+    ideal5 = ws['T']
+    real5 = ws['U']
+
+    tmp = {}
+
+    # check the existence of data in row
+    try :
+        tmp['company'] = company[i].value
+        if tmp['company'] is None :
+           return 0
+    except IndexError :
+        return 0
+    tmp['date'] = date[i].value.strftime('%Y-%m-%d')
+    tmp['time'] = time[i].value.strftime('%I:%M')
+    tmp['amount'] = amount[i].value
+    tmp['recipe'] = recipe[i].value
+    tmp['car'] = car[i].value
+    tmp['mat1'] = mat1[i].value
+    tmp['ideal1'] = ideal1[i].value
+    tmp['real1'] = real1[i].value
+    tmp['mat2'] = mat2[i].value
+    tmp['ideal2'] = ideal2[i].value
+    tmp['real2'] = real2[i].value
+    tmp['mat3'] = mat3[i].value
+    tmp['ideal3'] = ideal3[i].value
+    tmp['real3'] = real3[i].value
+    tmp['mat4'] = mat4[i].value
+    tmp['ideal4'] = ideal4[i].value
+    tmp['real4'] = real4[i].value
+    tmp['mat5'] = mat5[i].value
+    tmp['ideal5'] = ideal5[i].value
+    tmp['real5'] = real5[i].value
+
+    return tmp
